@@ -1105,9 +1105,31 @@ g上の元が直交補空間上にいると思うと、上記の内積が０と�
     (A^{\mu}_{D}(x^{3}=-0))_{N}&=A^{\mu}_{D}(x^{3}=+0)\\
     \Psi^{+}_{N}+\frac{e_{1}^{2}}{e_{2}^{2}}\Psi^{-}_{N}|_{x^{3}=-0}&=\Psi_{N}(x^{3})
 \end{align*}
-特に、$e_{1}=e_{2}$の時の直感を述べるのは重要である。この場合、写像されたDomain-wall系は、以下のような描像となる。
-\begin{resultbox}{$e_{1}=e_{2}$かつdiagonal部分群と双対なDomain-wall系}
-    Domain-wall系は、su(N)の部分が連続で、直交補空間がD5-likeな境界条件となる。
+特に、$e_{1}=e_{2}$の時Domain-wall境界条件を述べることは重要である。上記の射影後の式に$e_{1}=e_{2}$を代入すると、以下のような境界条件となることが自然に示せる。
+\begin{resultbox}{カップリングが等しい場合のDomain-wall上の境界条件}
+    まず、su(N+k)内に以下のような部分群が自然に存在。
+    \begin{gather*}
+        h=\{i(X)\in su(N+k)\,|\,X\in su(N)\}\\
+        su(N+k)=h\oplus h^{\perp}
+    \end{gather*}
+    この場合、場は以下のように分解される。
+    \begin{gather*}
+        \Phi=\Phi^{h}+\Phi^{\perp}\\
+        (\Phi^{h}\in h,\quad \Phi^{\perp}\in h^{})
+    \end{gather*}
+    そしてD5-like SUSYを保つDomain-wall上の境界条件は、以下のようになる。
+    \begin{enumerate}
+        \item $h$成分の境界条件
+        \begin{align*}
+            \Phi^{h}(x^{3}=+0)=\Phi(x^{3}=-0)
+        \end{align*}
+        \item 直交補空間上の境界条件
+        \begin{gather*}
+            (\varepsilon_{abc}D_{3}\vec{X}_{a}^{\perp}-[X_{b}^{\perp},X_{c}^{\perp}]^{\perp})|_{x^{3}=+0,x^{2}\geq 0}=0\\
+            \vec{Y}^{\perp}|_{x^{3}=+0,x^{2}\geq 0}=0\\
+            B_{1}\Psi^{\perp}|_{x^{3}=+0,x^{2}\geq 0}=\Psi^{\perp}
+        \end{gather*}
+    \end{enumerate}   
 \end{resultbox}
 \end{enumerate}
 以上より、応用上重要な場合のDomain-wall上の境界条件を導出できた。当然、量子論の場合は上記の境界条件がオペレータの関係式となる。
@@ -1465,103 +1487,103 @@ CrossしたDomain-wall系を用いる場合は、各領域の境界に存在す�
     \end{align*}
 \end{defbox}
 \begin{resultbox}{1-2 Domain-wall上($x^{2}\geq0,x^{3}=0$)の境界条件}
-    まず、su(N+k)内に以下のような部分群が自然に存在。
-    \begin{align*}
-        h_{21}&=\{i_{21}(X)\in su(N+k)\,|\,X\in su(N)_{2}\}\\
-        su(N+k)&=h_{21}\oplus h_{21}^{\perp}\\
-    \end{align*}
-    この場合、Domain-wall上の境界条件は以下のようになる。
+su(N+k)内に以下のような部分群が自然に存在。
+    \begin{gather*}
+        h_{21}=\{i_{21}(X)\in su(N+k)\,|\,X\in su(N)_{2}\}\\
+        su(N+k)=h_{21}\oplus h_{21}^{\perp}
+    \end{gather*}
+    この場合、場は以下のように分解される。
+    \begin{gather*}
+        \Phi=\Phi^{h_{21}}+\Phi^{\perp_{21}}\\
+        (\Phi^{h_{21}}\in h_{21},\quad \Phi^{\perp_{21}}\in h^{\perp_{21}})
+    \end{gather*}
+    そしてD5-like SUSYを保つDomain-wall上の境界条件は、以下のようになる。
     \begin{enumerate}
         \item $h_{21}$成分の境界条件
         \begin{align*}
-            &if\,\Phi_{D}(x^{3}\geq 0)\in h_{21}\\
-            & \implies \Phi_{D}(x^{3}=+0)=i_{21}(\Phi(x^{3}=-0))\\
+            \Phi^{h_{21}}(x^{3}=+0)=\Phi(x^{3}=-0)
         \end{align*}
         \item 直交補空間上の境界条件
-        \begin{align*}
-            (\varepsilon_{abc}D_{3}\vec{X}_{a}^{\perp_{21}}-[X_{b}^{\perp_{21}},X_{c}^{\perp_{21}}]^{\perp_{21}})|_{x^{3}=+0,x^{2}\geq 0}=0\\
-            \vec{Y}^{\perp_{21}}|_{x^{3}=+0,x^{2}\geq 0}=0\\
+        \begin{gather*}
+            (\varepsilon_{abc}D_{3}X_{a}^{\perp_{21}}-[X_{b}^{\perp_{21}},X_{c}^{\perp_{21}}]^{\perp_{21}})|_{x^{3}=+0,x^{2}\geq 0}=0\\
+            Y^{\perp_{21}}|_{x^{3}=+0,x^{2}\geq 0}=0\\
             B_{1}\Psi^{\perp_{21}}|_{x^{3}=+0,x^{2}\geq 0}=\Psi^{\perp_{21}}
-        \end{align*}
-        ただし、$\Phi^{\perp}$の定義は、以下の通り。
-        \begin{align*}
-            \Phi^{\perp_{21}}&\in h_{21}^{\perp}
-        \end{align*}
+        \end{gather*}
     \end{enumerate}    
 \end{resultbox}
 \begin{resultbox}{2-3 Domain-wall上($x^{2}=0,x^{3}\leq0$)の境界条件}
-    まず、su(N)内に以下のような部分群が自然に存在。
-    \begin{align*}
-        h_{32}=&\{i_{32}(X)\in su(N)\,|\,X\in su(N-k)\}\\
-        su(N)_{2}=&h_{32}\oplus h_{32}^{\perp}
-    \end{align*}
-    この場合、Domain-wall上の境界条件は以下のようになる。
+    su(N)内に以下のような部分群が自然に存在。
+    \begin{gather*}
+        h_{32}=\{i_{32}(X)\in su(N)\,|\,X\in su(N-k)\}\\
+        su(N)_{2}=h_{32}\oplus h_{32}^{\perp}
+    \end{gather*}
+    この場合、場は以下のように分解される。
+    \begin{gather*}
+        \Phi=\Phi^{h_{32}}+\Phi^{\perp_{32}}\\
+        (\Phi^{h_{32}}\in h_{32},\quad \Phi^{\perp_{32}}\in h^{\perp_{32}})
+    \end{gather*}
+    そしてD5-like SUSYを保つDomain-wall上の境界条件は、以下のようになる。
     \begin{enumerate}
-        \item $h_{23}$成分の境界条件
+        \item $h_{32}$成分の境界条件
         \begin{align*}
-            &if\,\Phi_{D}(x^{2}\geq 0)\in h_{32}\\
-            & \implies \Phi_{D}(x^{2}=+0)=i_{32}(\Phi(x^{2}=-0))
+            \Phi^{h_{32}}(x^{2}=+0)=\Phi(x^{2}=-0)
         \end{align*}
         \item 直交補空間上の境界条件
-        \begin{align*}
+        \begin{gather*}
             X^{\perp_{32}}|_{x^{2}=+0,x^{3}\geq 0}=0\\
             (\varepsilon_{lmn}D_{2}Y_{l}^{\perp_{32}}-[Y_{m}^{\perp_{32}},Y_{n}^{\perp_{32}}]^{\perp_{32}})|_{x^{2}=+0,x^{3}\geq 0}=0\\
             C_{2}\Psi^{\perp_{32}}|_{x^{2}=+0,x^{3}\geq 0}=\Psi^{\perp_{32}}
-        \end{align*}
-        ただし、$\Phi^{\perp}$の定義は、以下の通り。
-        \begin{align*}
-            \Phi^{\perp_{32}}&\in h_{32}^{\perp}
-        \end{align*}
+        \end{gather*}
     \end{enumerate}    
 \end{resultbox}
 \begin{resultbox}{3-4 Domain-wall上($x^{2}\leq0,x^{3}=0$)の境界条件}
-    まず、su(N)内に以下のような部分群が自然に存在。
-    \begin{align*}
-        h_{34}=&\{i_{34}(X)\in su(N)\,|\,X\in su(N-k)\}\\
-        su(N)_{1}=&h_{34}\oplus h_{34}^{\perp}
-    \end{align*}
-    この場合、Domain-wall上の境界条件は以下のようになる。
+    su(N)内に以下のような部分群が自然に存在。
+    \begin{gather*}
+        h_{34}=\{i_{34}(X)\in su(N)\,|\,X\in su(N-k)\}\\
+        su(N)_{1}=h_{34}\oplus h_{34}^{\perp}
+    \end{gather*}
+    この場合、場は以下のように分解される。
+    \begin{gather*}
+        \Phi=\Phi^{h_{34}}+\Phi^{\perp_{34}}\\
+        (\Phi^{h_{34}}\in h_{34},\quad \Phi^{\perp_{34}}\in h^{\perp_{34}})
+    \end{gather*}
+    そしてD5-like SUSYを保つDomain-wall上の境界条件は、以下のようになる。
     \begin{enumerate}
         \item $h_{34}$成分の境界条件
         \begin{align*}
-            &if\,\Phi_{D}(x^{3}\geq 0)\in h_{34}\\
-            &\implies \Phi_{D}(x^{3}=+0)=i_{34}(\Phi(x^{3}=-0))
+            \Phi^{h_{34}}(x^{3}=+0)=\Phi(x^{3}=-0)
         \end{align*}
         \item 直交補空間上の境界条件
-        \begin{align*}
-            (\varepsilon_{abc}D_{3}\vec{X}_{a}^{\perp}-[X_{b}^{\perp_{34}},X_{c}^{\perp_{34}}]^{\perp_{34}})|_{x^{3}=+0,x^{2}\leq 0}=0\\
-            \vec{Y}^{\perp_{34}}|_{x^{3}=+0,x^{2}\leq 0}=0\\
+        \begin{gather*}
+            (\varepsilon_{abc}D_{3}X_{a}^{\perp_{34}}-[X_{b}^{\perp_{34}},X_{c}^{\perp_{34}}]^{\perp_{34}})|_{x^{3}=+0,x^{2}\leq 0}=0\\
+            Y^{\perp_{34}}|_{x^{3}=+0,x^{2}\leq 0}=0\\
             B_{1}\Psi^{\perp_{34}}|_{x^{3}=+0,x^{2}\leq 0}=\Psi^{\perp_{34}}
-        \end{align*}
-        ただし、$\Phi^{\perp}$の定義は、以下の通り。
-        \begin{align*}
-            \Phi^{\perp_{34}}&\in h_{34}^{\perp}
-        \end{align*}
+        \end{gather*}
     \end{enumerate}    
 \end{resultbox}
 \begin{resultbox}{4-1 Domain-wall上($x^{2}=0,x^{3}\geq0$)の境界条件}
     まず、su(N+k)内に以下のような部分群が自然に存在。
-    \begin{align*}
-        h_{41}=&\{i_{41}(X)\in su(N+k)\,|\,X\in su(N)_{1}\}\\
-        su(N+k)=&h_{41}\oplus h_{41}^{\perp}
-    \end{align*}
-    この場合、Domain-wall上の境界条件は以下のようになる。
+    \begin{gather*}
+        h_{41}=\{i_{41}(X)\in su(N+k)\,|\,X\in su(N)_{1}\}\\
+        su(N+k)=h_{41}\oplus h_{41}^{\perp}
+    \end{gather*}
+    この場合、場は以下のように分解される。
+    \begin{gather*}
+        \Phi=\Phi^{h_{41}}+\Phi^{\perp_{41}}\\
+        (\Phi^{h_{41}}\in h_{41},\quad \Phi^{\perp_{41}}\in h^{\perp_{41}})
+    \end{gather*}
+    そしてD5-like SUSYを保つDomain-wall上の境界条件は、以下のようになる。
     \begin{enumerate}
         \item $h_{41}$成分の境界条件
         \begin{align*}
-            &if\,\Phi_{D}(x^{2}\geq 0)\in h_{41}\\
-            &\implies \Phi_{D}(x^{2}=+0)=i_{41}(\Phi(x^{2}=-0))
+            \Phi^{h_{41}}(x^{2}=+0)=\Phi(x^{2}=-0)
         \end{align*}
         \item 直交補空間上の境界条件
-        \begin{align*}
+        \begin{gather*}
             X^{\perp_{41}}|_{x^{2}=+0,x^{3}\geq 0}=0\\
             (\varepsilon_{lmn}D_{2}Y_{l}^{\perp_{41}}-[Y_{m}^{\perp_{41}},Y_{n}^{\perp_{41}}]^{\perp_{41}})|_{x^{2}=+0,x^{3}\geq 0}=0\\
             C_{2}\Psi^{\perp_{41}}|_{x^{2}=+0,x^{3}\geq 0}=\Psi^{\perp_{41}}
-        \end{align*}
-        ただし、$\Phi^{\perp}$の定義は、以下の通り。
-        \begin{align*}
-            \Phi^{\perp_{41}}&\in h_{41}^{\perp}
-        \end{align*}
+        \end{gather*}
     \end{enumerate}    
 \end{resultbox}
 これが、embeddingの形を仮定しない一般的な場合のDomain-wall conditionである。\\
@@ -1655,69 +1677,10 @@ $x^{2}=x^{3}=0$の交差点を考える際には、embeddingをさらにembeddin
   ç
 \end{center}
 \end{resultbox}
-これらのembeddingを考えると、$x^{2},x^{3}\leq0$のembeddingがなす部分空間、およびその直交補空間は、全て$x^{2},x^{3}\geq 0$の内部に包括されている。これは、embeddingと例えば連続条件といった議論がconsistencyであることを意味する\footnote{逆にembeddingがはみ出ていると、そこで連続とならない領域が生まれるため、inconsistencyとなる。}し、$x^{2},x^{3}\geq 0$の領域のみを考えると、その他の領域の境界条件が自動的に理解できることになる。故に、このembeddingを採用する場合に限り、$x^{2},x^{3}\geq 0$のみを考えれば良い。
-\subsubsection{モジュライ空間($x^{2},x^{3}\geq 0$)}
-上記のDomain-wall conditionを満たしつつ、Bulk上でのVEV-constraintを満たすような解について考える。まずVEV-constraintについて再掲する。ゲージ場のVEVが0である場合を考えると、これは今までのBulk上のVEVと同様の議論から、
-\begin{resultbox}{Domain-wall系のBulk上のVEV}
-        \begin{align*}
-        0&=F_{01}\\
-        0&=[X_{a},Y_{m}]\cdot\bar{\epsilon}_{0}B_{0}\\
-    0&=\bar{\epsilon}_{0}([X_{b},X_{c}]-\epsilon_{abc}(D_{3}X_{a}B_{1}+D_{2}X_{a}C_{1}))\\
-    0&=\bar{\epsilon}_{0}([Y_{m},Y_{n}]-\epsilon_{lmn}(D_{3}Y_{l}B_{2}+D_{2}Y_{m}C_{2}))\\
-    \end{align*}
-    また、以下よりこれの特解として、以下のような形の解を考える。
-    \begin{align*}
-        X_{a}=X_{a}(x^{3}),\quad Y_{m}=Y_{m}(x^{2})
-    \end{align*}
-\end{resultbox}
-また、連続条件を省いた、特記すべき境界条件を再掲すると、
-\begin{resultbox}{D5-like Domain-wall condition}
-    \begin{enumerate}
-            \item $x^{3}=0$上のDomain-wall condition
-            \begin{align*}
-            (\varepsilon_{abc}D_{3}\vec{X}_{a}^{\perp}-[X_{b}^{\perp},X_{c}^{\perp}]^{\perp})|_{x^{3}=+0,x^{2}\geq 0}=0\\
-            \vec{Y}^{\perp}|_{x^{3}=+0,x^{2}\geq 0}=0\\
-            B_{1}\Psi^{\perp}|_{x^{3}=+0,x^{2}\geq 0}=\Psi^{\perp}
-        \end{align*}
-        ただし、リー代数の直和分解と、場の配位は以下の通りとなる。
-        \begin{align*}
-            su(N+k)&=h_{21}\oplus h_{21}^{\perp}\\
-            \Phi^{\perp}&\in h_{21}^{\perp}
-        \end{align*}
-            \item $x^{2}=0$上の境界条件
-        \begin{align*}
-            X^{\perp'}|_{x^{2}=+0,x^{3}\geq 0}=0\\
-            (\varepsilon_{lmn}D_{2}Y_{l}^{\perp'}-[Y_{m}^{\perp'},Y_{n}^{\perp'}]^{\perp'})|_{x^{2}=+0,x^{3}\geq 0}=0\\
-            C_{2}\Psi^{\perp'}|_{x^{2}=+0,x^{3}\geq 0}=\Psi^{\perp'}
-        \end{align*}
-        ただし、リー代数の直和分解と、場の配位は以下の通りとなる。
-        \begin{align*}
-            su(N+k)=&h_{41}\oplus h_{41}^{\perp}\\
-            \Phi^{\perp'}&\in h_{41}^{\perp}
-        \end{align*}
-        \end{enumerate}
-\end{resultbox}
-これらの式を、便宜上、2つの組にラベリングする。一方は、VEVの存在箇所を指定する式で、もう一方は、VEVの具体系を決定する式である。
-\begin{defbox}{VEVの存在領域を決める式}
-    \begin{align*}
-    X_{a}=X_{a}(x^{3}),\quad Y_{m}&=Y_{m}(x^{2})\\
-        \quad X^{\perp'}|_{x^{2}=+0,x^{3}\geq 0}&=0\\
-        \vec{Y}^{\perp}|_{x^{3}=+0,x^{2}\geq 0}&=0\\
-        [X_{a},Y_{m}]&=0
-    \end{align*}
-\end{defbox}
-上式は、VEVの住んでいる領域を制限する式である。当然、どういった領域が制限されるかは、embeddingによって変化する。予め用意したembeddingを用いたとすると、上式を満たすVEVの特解として、以下のようなものが考えられる。\\
-\\
-また、VEVの具体系は、以下の方程式から導出できる。
-\begin{defbox}{VEVの具体系を決める式}
-    \begin{align*}
-        0&=\bar{\epsilon}_{0}([X_{b},X_{c}]-\epsilon_{abc}D_{3}X_{a}B_{1})\\
-    0&=\bar{\epsilon}_{0}([Y_{m},Y_{n}]-\epsilon_{lmn}D_{3}Y_{l}B_{2})\\
-    0&=(\varepsilon_{abc}D_{3}\vec{X}_{a}^{\perp}-[X_{b}^{\perp},X_{c}^{\perp}]^{\perp})|_{x^{3}=+0,x^{2}\geq 0}\\
-    0&=(\varepsilon_{lmn}D_{2}Y_{l}^{\perp'}-[Y_{m}^{\perp'},Y_{n}^{\perp'}]^{\perp'})|_{x^{2}=+0,x^{3}\geq 0}
-    \end{align*}
-\end{defbox}
-これを満たす解として、定数解やPole解が考えられる。上記の解の存在領域として許される部分の中で、これらを満たす解を考えればいいだけなので、解の分類は非常にシンプルに行われる。
+これらのembeddingを考えると、$x^{2},x^{3}\leq0$のembeddingがなす部分空間、およびその直交補空間は、全て$x^{2},x^{3}\geq 0$の内部に包括されている。
+\subsubsection{定数型VEV}
+上記のDomain-wall conditionを満たしつつ、Bulk上でのVEV-constraintを満たすような解について考える。\\
+以下ではその中でも、特に定数型のVEVを考える。
 
 \appendix
 \section{Shurの補題}
