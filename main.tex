@@ -20,6 +20,18 @@
 
 \tcbuselibrary{breakable,skins}
 
+\newcounter{subtopic}[subsection]
+\renewcommand{\thesubtopic}{\thesubsection.\arabic{subtopic}}
+
+\newcommand{\subtopic}[1]{%
+    \refstepcounter{subtopic}%
+    \par\medskip
+    \noindent\textbf{\large\thesubtopic\quad #1}%
+    \par\nobreak\smallskip
+    \noindent
+}
+
+
 % ===== 色 =====
 % ===== colors =====
 \definecolor{goalred}{RGB}{170,40,40}
@@ -1678,9 +1690,220 @@ $x^{2}=x^{3}=0$の交差点を考える際には、embeddingをさらにembeddin
 \end{center}
 \end{resultbox}
 これらのembeddingを考えると、$x^{2},x^{3}\leq0$のembeddingがなす部分空間、およびその直交補空間は、全て$x^{2},x^{3}\geq 0$の内部に包括されている。
-\subsubsection{定数型VEV}
-上記のDomain-wall conditionを満たしつつ、Bulk上でのVEV-constraintを満たすような解について考える。\\
-以下ではその中でも、特に定数型のVEVを考える。
+\subsubsection{Vacuum expectation value}
+以下では、このCrossしたDomain-wall系における、1/4-BPS分の超対称性を保つようなVEVの形について考察する。\\
+まず、空間の対称性から。Boundaryの時に加えて、$D_{2}X_{a},D_{3}Y_{a},F_{01}$がそれぞれnon-zeroとなる。Boundaryの時のVEV-constraintの議論において、これらがnon-zeroであることを踏まえると、
+\begin{resultbox}{Domain-wall系のBulk上のVEV}
+        \begin{align*}
+        0&=F_{01}\\
+        0&=[X_{a},Y_{m}]\cdot\bar{\epsilon}_{0}B_{0}\\
+    0&=\bar{\epsilon}_{0}([X_{b},X_{c}]-\epsilon_{abc}(D_{3}X_{a}B_{1}+D_{2}X_{a}C_{1}))\\
+    0&=\bar{\epsilon}_{0}([Y_{m},Y_{n}]-\epsilon_{lmn}(D_{3}Y_{l}B_{2}+D_{2}Y_{m}C_{2}))\\
+    \end{align*}
+\end{resultbox}
+これが、Bulkにおける1/4-BPSという条件からのVEVの制限である。
+\subtopic{定数型のVEV}
+Cross-Domain wall系のうち、まずはVEVの値が定数になるような状況を考える。\\
+\\
+この場合、まずはVEV-constraintの条件式は、以下のような形となる。
+\begin{align*}
+    &[X_{b},X_{c}]=[Y_{m},Y_{n}]=[X_{a},Y_{l}]=0
+\end{align*}
+故に、X,Yは全て同時対角化可能である。\\
+\\
+また、Domain-wall上の境界条件からVEVの値は制限を受ける。その結果どのようなVEVが許されるかを、各象限及びDomain-wallごとに考える。\\
+\begin{enumerate}
+    \item 第1象限($x^{2},x^{3}\geq0$)\\
+    この象限における非自明な境界条件は、以下のようなものである。
+    \begin{align*}
+        &X_{a}^{\perp_{41}}|_{x^{2}=+0,x^{3}\geq 0}=0\\
+        &Y_{m}^{\perp_{21}}|_{x^{2}\geq 0,x^{3}=+0}=0
+    \end{align*}
+    故に、第一象限におけるVEVの値は、以下の通りとなる。
+    \begin{align*}
+X=
+\begin{pmatrix}
+x_1 &        &        &        &  \\
+    & \ddots &        &        &   \\
+    &        & x_N    &        &   \\
+    &        &        & 0      &   \\
+   &        &        &        & 0
+\end{pmatrix},
+\qquad
+Y=
+\begin{pmatrix}
+0   &        &        &        &  \\
+    & \ddots &        &        &   \\
+    &        & 0      &        &   \\
+    &        &        & y_{N+1}&   \\
+    &        &        &        & y_{N+k}
+\end{pmatrix}.
+    \end{align*}
+    \item 第2象限($x^{2}\leq0,x^{3}\geq0$)\\
+    第2象限上のVEVは、対角であることと定数であることから、以下のように表せる。
+    \begin{align*}
+        X=\begin{pmatrix}
+\lambda_1 &        &          \\
+    & \ddots &          \\
+    &        & \lambda_N    
+        \end{pmatrix}
+        ,\quad
+        Y=\begin{pmatrix}
+\nu_1 &        &          \\
+    & \ddots &          \\
+    &        & \nu_N
+        \end{pmatrix}
+    \end{align*}
+この時、1-2 Domain-wallにおける接続条件から、例えばX場のVEVについて、以下の関係が成立する。
+\begin{align*}
+    X(x^{3}\leq 0)=X^{h_{21}}(x^{3}\geq 0)
+    \iff
+    \begin{pmatrix}
+        \lambda_1 &        &          \\
+    & \ddots &          \\
+    &        & \lambda_N  
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+x_{k+1} &        &        &        &  \\
+    & \ddots &        &        &   \\
+    &        & x_N    &        &   \\
+    &        &        & 0      &   \\
+   &        &        &        & 0
+\end{pmatrix}
+\end{align*}
+この関係から、X場のVEVについては、以下の関係が成立する。
+\begin{align*}
+ X(x^{3}\leq 0)=\begin{pmatrix}
+x_{k+1} &        &        &        &  \\
+    & \ddots &        &        &   \\
+    &        & x_N    &        &   \\
+    &        &        & 0      &   \\
+   &        &        &        & 0
+\end{pmatrix}
+\end{align*}
+Y場も同様にして、以下のようなVEVの値が得られる。
+\begin{align*}
+    Y(x^{3}\leq 0)=\begin{pmatrix}
+        y_1 &        &          \\
+    & \ddots &          \\
+    &        & y_N  
+    \end{pmatrix}
+\end{align*}
+これが、1-2境界条件から縛られる、X,Y場のVEVの値である。\\
+\\
+また、2-3 Domain-wallの境界条件からの制限を考える。X,Y場に関する境界条件は以下の通りである。
+\begin{align*}
+    D_{2}Y^{\perp_{32}}|_{x^{2}=0}\\
+    X^{\perp_{32}}|_{x^{2}=0}=0
+\end{align*}
+これらは、VEVの行列のexplicitな形を踏まえると、何ら新たな条件を出さないことがわかる。このため、VEVの値は、上で求めたものがそのまま成立する。\\
+    \item 第4象限($x^{2}\geq0,x^{3}\leq0$)\\
+    第2象限の時と同様の議論を行うと、以下のようなVEVの値が得られる。
+    \begin{align*}
+        X(x^{2}\leq 0)=\begin{pmatrix}
+x_1 &        &          \\
+    & \ddots &          \\
+    &        & x_N    
+        \end{pmatrix},\quad
+        Y(x^{2}\leq 0)=\begin{pmatrix}
+            y_{k+1} &        &        &        &  \\
+    & \ddots &        &        &   \\
+    &        & y_N    &        &   \\
+    &        &        & 0      &   \\
+   &        &        &        & 0
+        \end{pmatrix}
+    \end{align*}
+    \item 第3象限($x^{2},x^{3}\leq0$)
+    第2、第４象限からの接続条件の値から、以下のようなVEVの値が得られる。
+    \begin{align*}
+         X(x^{2},x^{3}\leq 0)=\begin{pmatrix}
+        x_{k+1} &        &          \\
+    & \ddots &          \\
+    &        & x_N  
+    \end{pmatrix}
+    ,\quad
+    Y(x^{2},x^{3}\leq 0)=\begin{pmatrix}
+        y_{k+1} &        &          \\
+    & \ddots &          \\
+    &        & y_N  
+    \end{pmatrix}
+    \end{align*}
+\end{enumerate}
+以上の議論をまとめると、定数型のVEVの行列の形は、以下の１つのダイアグラムにまとめることが可能となる。
+\begin{resultbox}{全空間における定数VEVの値}
+    \begin{center}
+  \includegraphics[width=0.5\linewidth]{VEV_area_crossing.eps}
+  \captionof{figure}{全空間における定数VEVの値}
+\end{center}
+\end{resultbox}
+
+\subtopic{Pole型のVEV}
+
+\section{Localized Chiral zero mode}
+Gauge-Anomalyはしばし、Weyl-fermionによって引き起こされる。特に、Anomaly-inflowの機構を考える場合、defect上に局在した、Weyl-fermionが非常に重要な役割を果たす。\\
+ところで、一般に、D5-D5' Brane系においては、D5-D5'の交点に局在したWeyl-fermionにより、Anomaly-inflowが起こることが、stringの文脈において示されている。AdS/CFT対応の文脈から考えると、当然、双対となるd=4 N=4 SYM上でも同様に、Weyl-fermionがdefectの局在の上に存在し、Anomaly-inflowを再現するはずである。
+以下、段階を追って、実際に、D3-D5-D5'系の、Domain-wall crossing系において、交点直上にWeyl-fermionが存在することを示す。
+
+\subsection{Defect上のWeyl-fermionの一般論}
+まずは、偶数次元に広がるdefect上にWeyl-fermionが存在することを示す際の、一般的な戦略について議論を行うことにする。\\
+ただし、Hilbert空間全てで考えるとキリがないため、一旦、エネルギー固有値が一定の空間内でそのようなモードが実現する条件は何かを議論する。\\
+\\
+Weyl-fermionが存在することを示すためのセットアップは、以下の通りである。
+\begin{setupbox}{Weyl-fermionの局在を示す手順}
+    \begin{enumerate}
+        \item 全体のDirac方程式、及び1粒子ハミルトニアンを書き下す
+        \begin{gather*}
+            i\Gamma^{\mu}\partial_{\mu}\Psi + (interaction-term)\Psi =0\\
+            h=i\Gamma^{i}\partial_{i}+(interaction-term)
+        \end{gather*}
+        \item 1粒子ハミルトニアンを分ける\\
+        1粒子ハミルトニアンを、defectが広がっている方向のkinetic-term $h_{int}$と、それ以外の部分$h_{ext}$に分解する。
+        \begin{gather*}
+            h=h_{int}+h_{ext}\\
+            h_{int}=i\Gamma^{int}\partial_{int}\\
+            h_{ext}=i\Gamma^{ext}\partial_{ext}+(interaction)
+        \end{gather*}
+        ただし、この時${h_{int},h_{ext}}=0$かを確かめる。成立しないなら、この方法は使えないので、引き上げる。
+        \item defect上のChirality行列$\bar{\gamma_{int}}$と$h_{ext}$が反可換かを調べる
+        \begin{enumerate}
+            \item 反可換でない場合\\
+            この方法は使えないので、引き上げる。
+            \item 反可換であった場合
+            以下の方程式の、normalizedな解を探す。
+            \begin{align*}
+                h_{ext}\Psi=0
+            \end{align*}
+            解が存在するならば、その解がlocalized Weyl-fermionである。
+        \end{enumerate}
+    \end{enumerate}
+\end{setupbox}
+以下、上記のセットアップで得られた解が、確かにlocalized Weyl-fermionであることを示す。正確なstatementは以下の通りである。
+\begin{resultbox}{defect上のWeylの存在条件}
+    以下の条件を仮定する。
+    \begin{gather*}
+        \{h_{int},h_{ext}\}=0\\
+        \{h_{ext},\bar{\gamma}_{int}\}=0\\
+    \end{gather*}
+    この時、$\Psi$がdefect上にWeyl-fermionが局在するモードである必要十分条件は、以下の通りである。
+    \begin{align*}
+         h_{ext}\Psi =0
+    \end{align*}
+\end{resultbox}
+\begin{proofbox}
+    まず、hの固有モードと$h_{ext}$の固有モードの対応を関連づけるため、$h^{2}$を考える。この時、$\{h_{int},h_{ext}\}=0$であるため、
+    \begin{gather*}
+        h^{2}=h^{2}_{int}+h^{2}_{ext}
+    \end{gather*}
+    ここで、仮定$\{h_{int},h_{ext}\}=0$より、
+    \begin{align*}
+        [h^{2}_{int},h_{ext}^{2}]=[h^{2},h_{int}^{2}]=[h^{2},h_{ext}^{2}]=0
+    \end{align*}
+    故に$h^{2}_{int},h_{ext}^{2}$は同時対角化可能。また、defectに沿う方向には並進対称性が残っているため、その固有関数はフーリエモードであることが自明である。故に、h,ひいては$h^{2}$のモードを扱うことは、$h_{ext}^{2}$のモードを扱うことに等しい。
+\end{proofbox}
+\subsection{Boundary上に局在したlocalized Weyl-mode}
+
+\subsection{D3-D5-D5' system上のlocalized Weyl-mode}
 
 \appendix
 \section{Shurの補題}
