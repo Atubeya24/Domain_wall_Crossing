@@ -107,6 +107,19 @@
   title={定理：#1}
 }
 
+% ===== problem =====
+\newtcolorbox{problembox}[1]{
+  enhanced,
+  breakable,
+  colback=goalbg,
+  colframe=goalred,
+  boxrule=0.8pt,
+  arc=1.5mm,
+  left=2mm,right=2mm,top=1.5mm,bottom=1.5mm,
+  fonttitle=\bfseries,
+  title={問題：#1}
+}
+
 % ===== Example =====
 \newtcolorbox{examplebox}[1]{
   enhanced,
@@ -175,6 +188,11 @@
 {\begin{prooflabel}\textbf{直感的描像：}\end{prooflabel}\vspace{0.8em}}
 {\par\vspace{1em}\hrule\vspace{1em}}
 
+
+% ===== answer =====
+\newenvironment{answerbox}
+{\begin{prooflabel}\textbf{解答：}\end{prooflabel}\vspace{0.8em}}
+{\par\vspace{1em}\hrule\vspace{1em}}
 
 \title{Domain-wall crossingまとめ}
 \author{u638166h }
@@ -1845,7 +1863,7 @@ Gauge-Anomalyはしばし、Weyl-fermionによって引き起こされる。特�
 ところで、一般に、D5-D5' Brane系においては、D5-D5'の交点に局在したWeyl-fermionにより、Anomaly-inflowが起こることが、stringの文脈において示されている。AdS/CFT対応の文脈から考えると、当然、双対となるd=4 N=4 SYM上でも同様に、Weyl-fermionがdefectの局在の上に存在し、Anomaly-inflowを再現するはずである。
 以下、段階を追って、実際に、D3-D5-D5'系の、Domain-wall crossing系において、交点直上にWeyl-fermionが存在することを示す。
 
-\subsection{Defect上のWeyl-fermionの一般論}
+\subsection{一般論}
 まずは、偶数次元に広がるdefect上にWeyl-fermionが存在することを示す際の、一般的な戦略について議論を行うことにする。\\
 ただし、Hilbert空間全てで考えるとキリがないため、一旦、エネルギー固有値が一定の空間内でそのようなモードが実現する条件は何かを議論する。\\
 \\
@@ -1864,7 +1882,7 @@ Weyl-fermionが存在することを示すためのセットアップは、以�
             h_{int}=i\Gamma^{int}\partial_{int}\\
             h_{ext}=i\Gamma^{ext}\partial_{ext}+(interaction)
         \end{gather*}
-        ただし、この時${h_{int},h_{ext}}=0$かを確かめる。成立しないなら、この方法は使えないので、引き上げる。
+        ただし、この時$\{h_{int},h_{ext}\}=0$かを確かめる。成立しないなら、この方法は使えないので、引き上げる。
         \item defect上のChirality行列$\bar{\gamma_{int}}$と$h_{ext}$が反可換かを調べる
         \begin{enumerate}
             \item 反可換でない場合\\
@@ -1874,7 +1892,7 @@ Weyl-fermionが存在することを示すためのセットアップは、以�
             \begin{align*}
                 h_{ext}\Psi=0
             \end{align*}
-            解が存在するならば、その解がlocalized Weyl-fermionである。
+            解が存在するならば、その解を暫定的にlocalized Weyl-fermionであるとみなす。
         \end{enumerate}
     \end{enumerate}
 \end{setupbox}
@@ -1883,9 +1901,9 @@ Weyl-fermionが存在することを示すためのセットアップは、以�
     以下の条件を仮定する。
     \begin{gather*}
         \{h_{int},h_{ext}\}=0\\
-        \{h_{ext},\bar{\gamma}_{int}\}=0\\
+        \{h_{ext},\bar{\Gamma}_{int}\}=0
     \end{gather*}
-    この時、$\Psi$がdefect上にWeyl-fermionが局在するモードである必要十分条件は、以下の通りである。
+    この時、$\Psi$がdefect上にWeyl-fermionが局在するモードである必要条件は、以下の通りである。
     \begin{align*}
          h_{ext}\Psi =0
     \end{align*}
@@ -1899,10 +1917,264 @@ Weyl-fermionが存在することを示すためのセットアップは、以�
     \begin{align*}
         [h^{2}_{int},h_{ext}^{2}]=[h^{2},h_{int}^{2}]=[h^{2},h_{ext}^{2}]=0
     \end{align*}
-    故に$h^{2}_{int},h_{ext}^{2}$は同時対角化可能。また、defectに沿う方向には並進対称性が残っているため、その固有関数はフーリエモードであることが自明である。故に、h,ひいては$h^{2}$のモードを扱うことは、$h_{ext}^{2}$のモードを扱うことに等しい。
+    故に$h^{2}_{int},h_{ext}^{2}$は同時対角化可能。また、defectに沿う方向には並進対称性が残っているため、その固有関数はフーリエモードであることが自明である。故に、hのモード,つまり$h^{2}$のモードを扱うことは、$h_{ext}^{2}$のモードを扱うことに等しい。\\
+    \\
+    以下、$h_{ext}^{2}$の固有モードの中で、どれがWeylになりうるかを議論する。\\
+    まず、仮定$\{h_{ext},\bar{\Gamma}_{int}\}=0$から、以下が成立する。
+    \begin{align*}
+        [h_{ext}^{2},\bar{\Gamma}_{int}]=0
+    \end{align*}
+    このため、$h_{ext}^{2}$の固有モードは、Chirality行列の固有状態でもある。\\
+    \\
+    以上のセットアップのもと、仮に以下のような状態を考えたとする。
+    \begin{align*}
+        \Gamma_{int}\Psi=\Psi\\
+        h_{ext}^{2}\Psi =w^{2}\Psi
+    \end{align*}
+    この時、$\Psi$と同じエネルギーを持つ状態として、$h_{ext}\Psi$があげられる。
+    \begin{align*}
+        h_{ext}^{2}(h_{ext}\Psi)=w^{2}h_{ext}\Psi
+    \end{align*}
+    尚且つ、仮定$\{h_{ext},\bar{\Gamma}_{int}\}=0$から、$h_{ext}\Psi$のカイラリティは以下の通りである。
+    \begin{align*}
+        \bar{\Gamma}_{int}(h_{ext}\Psi)=-h_{ext}\bar{\Gamma}_{int}\Psi=-h_{ext}\Psi
+    \end{align*}
+    このことは、「仮に$h_{ext}\Psi\neq 0$が成立する」なら、同じエネルギー内に違うカイラリティを持つstate同士がペアになって現れることを意味する。このため、$h_{ext}\Psi\neq 0$を満たすstateはChiralモードではない。
+    このことは、モードがChiralであるための必要条件が以下であることを意味する。
+    \begin{align*}
+        h_{ext}\Psi =0
+    \end{align*}
 \end{proofbox}
-\subsection{Boundary上に局在したlocalized Weyl-mode}
 
+\subsection{Boundary上に局在したlocalized Weyl-mode}
+以下では、練習問題として、境界に局在したWeyl-modeを、適切な境界条件の下、存在するかを考える。
+
+\subsubsection{1+2d Free-massive fermion}
+まず初めに、一番単純な問題として、以下を考える。
+\begin{problembox}{1+2d Free-massive fermion}
+    \begin{enumerate}
+        \item 1+2次元系で、$x^{2}=0$上にBoundaryが存在
+        \item ラグランジアン密度は以下で与えられている
+        \begin{align*}
+            \mathcal{L}=-i\bar{\Psi}\gamma^{\mu}\partial_{\mu}\Psi-im\bar{\Psi}\Psi
+        \end{align*}
+        この時、$\gamma$は３次元ガンマ行列である。反交換関係、及びエルミート共役は以下である。
+        \begin{gather*}
+            \{\gamma^{\mu},\gamma^{\nu}\}=2\eta_{\mu\nu}\quad (\eta=(-,+,+))\\
+            (\gamma^{0})^{\dagger}=-\gamma^{0},\quad (\gamma^{i\neq 0})^{\dagger}=\gamma^{i\neq 0}
+        \end{gather*}
+        \item 境界条件は以下である
+        \begin{align*}
+            \gamma^{2}\Psi|_{x^{2}=0}=-\Psi|_{x^{2}=0}
+        \end{align*}
+    \end{enumerate}
+    この時、境界上にlocalized Weyl-modeがあることを示せ。また、その成分数を答えよ。
+\end{problembox}
+\begin{answerbox}
+    一般論の流れをそのまま踏襲すれば良い。\\
+    まず、1粒子ハミルトニアンは以下のように書き下せる。
+    \begin{align*}
+        h=i\gamma^{0}\gamma^{1}\partial_{1}+i\gamma^{0}\gamma^{2}\partial_{2}-im\gamma^{0}
+    \end{align*}
+    1粒子ハミルトニアンをboundaryに沿う方向とその他に分解する。
+    \begin{gather*}
+        h=h_{int}+h_{ext}\\
+        h_{int}=i\gamma^{0}\gamma^{1}\partial_{1}\\
+        h_{ext}=i\gamma^{0}\gamma^{2}\partial_{2}-im\gamma^{0}
+    \end{gather*}
+    この時、Boundaryに沿う方向の快ラリティ行列$\bar{\gamma}_{int}=\gamma^{0}\gamma^{1}$は、explicitに計算すると、
+    \begin{gather*}
+        \{\bar{\gamma}_{int},\gamma^{0}\gamma^{2}\}=\{\bar{\gamma}_{int},\gamma^{0}\}=0
+        \implies  \{\bar{\gamma}_{int},h_{ext}\}=\{h_{int},h_{ext}\}=0
+    \end{gather*}
+    故に、この系は一般論の適用条件が満たされているので、Chiral-modeであることの必要条件は以下の通りである。
+    \begin{align*}
+        h_{ext}\Psi=0 \iff i\gamma^{0}\gamma^{2}\partial_{2}\Psi -im\gamma^{0}\Psi=0
+    \end{align*}
+    この時、$\Psi$を$\gamma^{2}$の固有値で以下のように分解する。
+    \begin{align*}
+        \Psi = \Psi_{+}+\Psi_{-}\quad (\gamma^{2}\Psi_{\pm}=\pm\Psi_{\pm})
+    \end{align*}
+    この時、$h_{ext}\Psi=0$の解は、以下の通りである。
+    \begin{align*}
+        \Psi_{+}=\Psi(x^{0},x^{1})e^{mx^{2}} \implies \text{(non-normalizableより棄却)}\\
+        \Psi_{-}=\Psi(x^{0},x^{1})e^{-mx^{2}}\implies \text{(Localized-Chral mode)}
+    \end{align*}
+    この時、境界条件より、$\gamma_{2}\Psi(x^{0},x^{1})=-\Psi(x^{0},x^{1})$である。$\gamma^{2}=\gamma^{0}\gamma^{1}$から、これは$\gamma^{2}\Psi=-\Psi$とconsistentである。
+    故に、確かにこの系では、Localized-Chiral modeは存在する。 
+\end{answerbox}
+
+\subsubsection{湯川term入りの1+2d Fermion}
+ここから、求めたいD3-D5-D5' systemにシステムを近づけることを考える。その目的のため、テストケースとして以下のような問題を考える。
+\begin{problembox}{湯川term入りの1+2d Fermion}
+    \begin{enumerate}
+        \item 1+5次元を1+2次元にDimensional-reductionした系で、$x^{2}=0$上にBoundaryが存在
+        \item ラグランジアン密度は以下で与えられている。
+        \begin{gather*}
+            \mathcal{L}=-i\bar{\Psi}\Gamma^{\mu}\partial_{\mu}\Psi-v_{a}\bar{\Psi}\Gamma^{a}\Psi\\
+            (\mu=0,1,2\quad a=3,4,5)
+        \end{gather*}
+        ただし、$\Psi$は1+5次元のWeyl-spinorとする。\\
+        この時、$\Gamma$は1+5次元ガンマ行列で、8成分である。反交換関係、及びエルミート共役は以下である。
+        \begin{gather*}
+            \{\Gamma^{I},\Gamma^{J}\}=2\eta_{IJ}\quad (\eta=(-,+,+,+,+,+))\\
+            (\Gamma^{0})^{\dagger}=-\Gamma^{0},\quad (\Gamma^{i\neq 0})^{\dagger}=\Gamma^{i\neq 0}
+        \end{gather*}
+        \item 境界条件は以下である
+        \begin{align*}
+            \Gamma^{2345}\Psi|_{x^{2}=0}=-\Psi|_{x^{2}=0}
+        \end{align*}
+    \end{enumerate}
+    この時、境界上にlocalized Weyl-modeがあることを示せ。また、その成分数を答えよ。
+\end{problembox}
+\begin{answerbox}
+    まずは、Dimensional-reductionにおける、1+5次元Weyl-spinorの表現分解の構造から調べる。\\
+    結論としては、表現分解の元では、以下のように振る舞う。
+    \begin{resultbox}{1+5次元Weyl-spinorの表現分解}
+        \begin{align*}
+            SO(1,5)&\to SO(1,2)\times SO(3)\\
+            4 &\to (2,2)
+        \end{align*}
+    故に1+5次元Weyl-spinor1個は、Dim-reducの下、1+2次元Dirac-spinor2個に相当する。
+    \end{resultbox}
+    \begin{proofbox}
+        便宜上、以下のような表現を採用する。
+        \begin{gather*}
+            \Gamma^{0}=i\sigma^{1}\otimes I_{2}\otimes \sigma^{1}\\
+            \Gamma^{1,2}=\sigma^{2,3}\otimes I_{2}\otimes \sigma^{1}\\
+            \Gamma^{3,4,5}=I_{2}\otimes \sigma^{1,2,3}\otimes \sigma^{2} 
+        \end{gather*}
+        この基底においては、６次元カイラリティ行列、及び$SO(1,2)\times SO(3)$の表現は以下のようになる。
+        \begin{gather*}
+            \bar{\Gamma}=-\Gamma^{012345}=I_{2}\otimes I_{2} \otimes \sigma^{3}\\
+            \Gamma^{ij}=\sigma^{ij}\otimes I_{2}\otimes I_{2}\\
+            \Gamma^{ab}=I_{2}\otimes \sigma^{ab} \otimes I_{2}
+        \end{gather*}
+        このため、1+5次元Weyl-spinorは4次元ベクトルであり、SO(1,2)及びSO(3)の生成子は、それぞれのテンソル積に2表現として作用する。故に、
+     \begin{align*}
+            SO(1,5)&\to SO(1,2)\times SO(3)\\
+            4 &\to (2,2)
+        \end{align*}
+        以上の議論は、同値なものであれば、以上の形に帰着できる。故に、上記の分解は表現を選ばずに成立する。
+    \end{proofbox}
+    ここで、1粒子ハミルトニアンを以下のように分割。
+    \begin{gather*}
+        h=h_{int}+h_{ext}\\
+        h_{int}=i\Gamma^{0}\Gamma^{1}\partial_{1}\\
+        h_{ext}=i\Gamma^{0}\Gamma^{2}\partial_{2}+v_{a}\Gamma^{0}\Gamma^{a}
+    \end{gather*}
+    この時、以下の反交換関係が成立する。ただし、$\bar{\Gamma}_{int}=\Gamma_{0}\Gamma_{1}$は2dの意味でのカイラリティ行列である。\\
+    故に、この系は一般論の適用条件が満たされているので、Chiral-modeであることの必要条件は以下の通りである。
+    \begin{align*}
+        h_{ext}\Psi=0 &\iff i\Gamma^{0}\Gamma^{2}\partial_{2}\Psi +v_{a}\Gamma^{0}\Gamma^{a}\Psi=0\\
+        &\iff \partial_{2}\Psi +iv_{a}\gamma^{2}\gamma^{a}\Psi=0
+    \end{align*}
+    この時、
+    \begin{align*}
+        (v_{a}\Gamma^{2}\Gamma^{a})^{2}=-|\vec{v}|^{2}
+    \end{align*}
+    なので、Spinorは以下のように分解できる。
+    \begin{align*}
+        \Psi=\Psi_{+}+\Psi_{-}\quad (v_{a}\Gamma^{2}\Gamma^{a}\Psi=\pm i|\vec{v}|\Psi
+    \end{align*}
+    この分解の下、Spinorがカイラルであるための条件式の解は、以下の通りである。
+    \begin{align*}
+        \Psi_{+}=\Psi(x^{0},x^{1})e^{|\vec{v}|x^{2}} \implies \text{(non-normalizableより棄却)}\\
+        \Psi_{-}=\Psi(x^{0},x^{1})e^{-|\vec{v}|x^{2}}\implies \text{(Localized-Chral mode)}
+    \end{align*}
+    最後に、これと境界条件の兼ね合いを見て、Localized-Chiral modeの成分数を計算する。これを行うためには、それぞれの固有空間へのProjectionを構築することが便利である。
+    \begin{gather*}
+        P_{2345} \equiv \frac{1+\Gamma_{2345}}{2}\\
+        P_{|\vec{v}|} \equiv \frac{ 1+\frac{v_{a}\Gamma^{2}\Gamma^{a}}{|\vec{v}|} }{2}
+    \end{gather*}
+    Projectionは固有値が0,1であるため、両方のProjectionで射影されるような空間の次元を求めたいなら、Projectionの積のトレースを考えてやれば良い。
+    \begin{align*}
+        tr(P_{2345}P_{|\vec{v}|})=&\frac{1}{4}tr(I)+\frac{1}{4}tr(\Gamma^{2345})\\
+        &+\frac{v_{a}}{4}tr(\Gamma^{2}\Gamma^{a})+\frac{v^{a}}{4}tr(\Gamma^{345a})\\
+        =&\frac{1}{4}tr(I)\\
+        =&1
+    \end{align*}
+    ただし、トレースはWeyl spinorの固有空間でとった。\\
+    \\
+    このため、$\Psi_{-}$の成分のうち、境界条件$\Gamma^{2345}\Psi|_{x^{2}=0}=\Psi|_{x^{2}=0}$とconsistentなのは1成分だけである。\\
+    故に、この系では、境界条件$\Gamma^{2345}\Psi|_{x^{2}=0}=\Psi|_{x^{2}=0}$の下、1成分の分の2d-Weylがlocalizeする。
+\end{answerbox}
+
+\subsubsection{Boundaryの交点上のWeyl-mode}
+真に行いたいのは、1+3次元におけるBoundaryの交点上のWeyl-fermionの導出である。このため、2番目の問題をさらに拡張した、以下の問題を考える。
+\begin{problembox}{Boundaryの交点上のWeyl-mode}
+    \begin{enumerate}
+        \item 1+9次元を1+3次元にDimensional-reductionした系で、$x^{2}=0,x^{3}=0$上にそれぞれBoundaryが存在
+        \item ラグランジアン密度は以下で与えられている。
+        \begin{gather*}
+            \mathcal{L}=-i\bar{\Psi}\Gamma^{\mu}\partial_{\mu}\Psi-v_{a}\bar{\Psi}\Gamma^{a}\Psi v_{m}\bar{\Psi}\Gamma^{m}\Psi\\
+            (\mu=0,1,2,3\quad a=4,5,6\quad m=7,8,9)
+        \end{gather*}
+        ただし、$\Psi$は1+9次元のWeyl-spinorとする。\\
+        この時、$\Gamma$は1+9次元ガンマ行列で、32成分である。反交換関係、及びエルミート共役は以下である。
+        \begin{gather*}
+            \{\Gamma^{I},\Gamma^{J}\}=2\eta_{IJ}\quad (\eta=(-,+,\cdots,+))\\
+            (\Gamma^{0})^{\dagger}=-\Gamma^{0},\quad (\Gamma^{i\neq 0})^{\dagger}=\Gamma^{i\neq 0}
+        \end{gather*}
+        \item 境界条件は以下である
+        \begin{align*}
+            \Gamma^{2789}\Psi|_{x^{2}=0}=\Psi|_{x^{2}=0}
+            \Gamma^{3456}\Psi|_{x^{3}=0}=\Psi|_{x^{3}=0}
+        \end{align*}
+    \end{enumerate}
+    この時、Boundaryの交点$x^{2},x^{3}=0$上に、Localized-Weyl modeが存在することを示せ。尚且つ、その成分数を答えよ。
+\end{problembox}
+\begin{answerbox}
+    以下の2段階によってLocalized-Weyl modeの存在を示す。
+    \begin{enumerate}
+        \item $x^{3}=0$上に6d-Weylが存在することを示す。\\
+        このために、1粒子ハミルトニアンを以下のように分解する。
+    \begin{gather*}
+        h=h_{6d}+h_{ext}\\
+        h_{6d}=i\Gamma^{0}\Gamma^{1}\partial_{1}+i\Gamma^{0}\Gamma^{2}\partial_{1}+v_{m}\Gamma^{0}\Gamma^{m}\\
+        h_{ext}=i\Gamma^{0}\Gamma^{3}\partial_{3}+v_{a}\Gamma^{0}\Gamma^{a}
+    \end{gather*}
+    この時、6dのカイラリティ行列を$\bar{\Gamma}_{6d}=-\Gamma^{012345}$とすると、explicitな計算より、
+    \begin{align*}
+        \{\bar{\Gamma}_{6d},h_{ext}\}=0
+        \{h_{6d},h_{ext}\}=0
+    \end{align*}
+    故に、一般論を適用する条件が整っている。ここから、モードが6d-Weylであるための条件は、
+    \begin{align*}
+        h_{ext}\Psi=0\iff \partial_{3}\Psi +iv_{a}\Gamma^{3a}\Psi=0
+    \end{align*}
+    ここで、
+    \begin{align*}
+        (v_{a}\Gamma^{3}\Gamma^{a})^{2}=-|\vec{v}_{a}|^{2}
+    \end{align*}
+    であるため、Spinorを以下のように分解可能。
+    \begin{align*}
+        \Psi=\Psi_{+}+\Psi_{-}\quad (v_{a}\Gamma^{3}\Gamma^{a}\Psi_{\pm}=\pm i|\vec{v_{a}}|\Psi_{\pm})
+    \end{align*}
+    この分解の下、Spinorがカイラルであるための条件式の解は、以下の通りである。
+    \begin{align*}
+        \Psi_{+}=\Psi(x^{0},x^{1})e^{|\vec{v_{a}}|x^{2}} \implies \text{(non-normalizableより棄却)}\\
+        \Psi_{-}=\Psi(x^{0},x^{1})e^{-|\vec{v_{a}}|x^{2}}\implies \text{(Localized-Chral mode)}
+    \end{align*}
+    最後に、境界条件との兼ね合いから、6d-Weyl modeの成分数を数える。$x^{3}=0$上の境界条件は問題設定から以下の通りである。
+    \begin{align*}
+        \Gamma^{3456}\Psi|_{x^{3}=0}=\Psi|_{x^{3}=0}
+    \end{align*}
+    これとnormalizebility両方を保つ成分の数は、以下の式から決定される。ただし、トレースは10dのWeylの空間、すなわち16次元内で取っている。
+    \begin{gather*}
+        tr(P_{3456}P_{v_{a}})=4\\
+        P_{3456} \equiv \frac{1+\Gamma_{3456}}{2}\\
+        P_{v_{a}} \equiv \frac{ 1+\frac{v_{a}\Gamma^{2}\Gamma^{a}}{|\vec{v}_{a}|} }{2}
+    \end{gather*}
+
+        \item $x^{3}=0$上の6d-Weylの中に、さらに$x^{2}=0$上で2d-Weylになるモードがあることを示す。\\
+        \\
+        実は、先ほど分解した中で$h_{6d}$は、湯川term入りの1+2dを考えた際の$h$そのものである。尚且つ、$x^{3}=0$上に局在しているspinorも、6d-Weylである。\\
+        このため、実は上記の問題は、先ほど考えた、「湯川term入りの1+2dにおける、Boundary上の局在モード」を導出する問題そのものである。\\
+        \\
+        このことを踏まえると、最終的に、Boundaryの交点$x^{2},x^{3}=0$上に、1+1dのWeylが1成分のみ存在する。
+    \end{enumerate}
+\end{answerbox}
 \subsection{D3-D5-D5' system上のlocalized Weyl-mode}
 
 \appendix
