@@ -291,9 +291,9 @@ Boundaryがある場合、Poincare対称性は一部破壊される。ただし�
 \end{defbox}
 以下、これらの問題について考える。
 \subsection{境界条件}
-以下、境界条件の等式を解くことを考える。
+まず、境界条件の等式を解くことを考える。
 \subsubsection{basic-solution}
-まず、境界条件の式は以下のように分解される。
+境界条件の式は以下のように分解される。
 \begin{resultbox}{1/2-BPS境界条件の分解}
     \begin{align*}
         Tr(\bar{\epsilon}\Gamma^{IJ}F_{IJ}\Gamma^{3}\Psi)|_{x^{3}=0}=0
@@ -323,7 +323,7 @@ Boundary conditionの式には混ざったテンソルが存在するため、�
     \text{(2)}&=\{\Gamma^{\mu3},\Gamma^{3a},\Gamma^{3m}\}\\
     \text{(3)}&=\{\Gamma^{\mu a},\Gamma^{\mu m},\Gamma^{am}\}
 \end{split} \end{equation}
-まず(1)について。これは\eqref{generator}から明らかに各成分に対して線形独立であることがわかる。\\
+まず(1)について。これは、それぞれがSO(1,2),片方のSO(3),もう片方のSO(3)の生成子であることから、明らかに各成分に対して線形独立であることがわかる。\\
 次に(2)について。これらは$B_{0,1,2}$を用いて以下のように整理される。
 \begin{equation}\begin{split}
     \Gamma^{3\lambda}&=-\frac{1}{2}\epsilon^{\lambda}_{\mu\nu}\Gamma^{\mu\nu}B_{0}\bar{\Gamma}\\
@@ -1007,8 +1007,8 @@ matter-contentsを加えたアクションを考えても、リー代数の表�
 \end{resultbox}
 
 \item hが「diagonal部分群」の場合\\
-まずhがdiagonalであるとは、以下を満たすことである。
-\begin{resultbox}{diagonal部分群}
+まずdiagonal部分群を、以下のように定義する。
+\begin{defbox}{diagonal部分群}
     $g=su(N)\oplus su(N+k)$とする。この時、isometry(等長写像)、つまり以下を満たす写像を定義する。
     \begin{align*}
         i:su(N)\to su(N+k),\quad 
@@ -1020,8 +1020,8 @@ matter-contentsを加えたアクションを考えても、リー代数の表�
     \begin{align*}
         &h=\{(X,i(X))\,|\,X\in su(N)\}
     \end{align*}
-    この部分群hのことを、「diagonal部分群」と呼ぶ。
-\end{resultbox}
+    この部分群hのことを、「diagonal部分群」と定義する。
+\end{defbox}
 この時、gのうち、hの直交補空間は以下の通りである。
 \begin{resultbox}{hの直交補空間}
     \begin{align*}
@@ -1757,7 +1757,7 @@ Y=
     &        &        &        & y_{N+k}
 \end{pmatrix}.
     \end{align*}
-    \item 第2象限($x^{2}\leq0,x^{3}\geq0$)\\
+    \item 第2象限($x^{2}\geq0,x^{3}\leq0$)\\
     第2象限上のVEVは、対角であることと定数であることから、以下のように表せる。
     \begin{align*}
         X=\begin{pmatrix}
@@ -1816,7 +1816,7 @@ Y場も同様にして、以下のようなVEVの値が得られる。
     X^{\perp_{32}}|_{x^{2}=0}=0
 \end{align*}
 これらは、VEVの行列のexplicitな形を踏まえると、何ら新たな条件を出さないことがわかる。このため、VEVの値は、上で求めたものがそのまま成立する。\\
-    \item 第4象限($x^{2}\geq0,x^{3}\leq0$)\\
+    \item 第4象限($x^{2}\leq0,x^{3}\geq0$)\\
     第2象限の時と同様の議論を行うと、以下のようなVEVの値が得られる。
     \begin{align*}
         X(x^{2}\leq 0)=\begin{pmatrix}
@@ -2176,6 +2176,176 @@ Weyl-fermionが存在することを示すためのセットアップは、以�
     \end{enumerate}
 \end{answerbox}
 \subsection{D3-D5-D5' system上のlocalized Weyl-mode}
+上記の練習問題を踏まえて、いよいよ本題に入る。
+\begin{problembox}{D3-D5-D5' system上のlocalized Weyl-mode}
+    \begin{enumerate}
+        \item d=4,N=4 Super Yang-mills系を考える。ラグランジアンは、以下のように設定される。
+        \begin{align*}
+            \mathcal{L}=tr(i\bar{\Psi}\Gamma^{\mu}\partial_{\mu}\Psi+i\bar{\Psi}\Gamma^{a}[X_{a},\Psi]+i\bar{\Psi}\Gamma^{m}[Y_{m},\Psi])
+        \end{align*}
+        \item 以下のようなDomain-wallを考える。
+        \item Domain-wall上の境界条件は1/4-BPSを保つように設定する。
+        \item VEVとして、以下を採用する。
+        \begin{align*}
+            X_{4}=i \begin{pmatrix} 
+  v_{4} & 0 & \dots  & 0 \\
+  0 & 0 & \dots  & 0 \\
+  \vdots & \vdots & \ddots & \vdots \\
+  0 & 0 & \dots  & 0
+\end{pmatrix} ,\quad X_{5,6}=0\\
+Y_{7}=i \begin{pmatrix} 
+  0 & 0 & \dots  & 0 \\
+  \vdots & \vdots & \ddots & \vdots \\
+  0 & 0 & \dots  & 0 \\
+  0 & 0 & \dots  & v_{7}
+\end{pmatrix},\quad Y_{8,9}=0
+        \end{align*}
+    \end{enumerate}
+    この時、Domain-wallの交点上、すなわち$x^{2}=x^{3}=0$上にWeyl-modeが存在することを示せ。また、その成分数を答えよ。
+\end{problembox}
+\begin{answerbox}
+    まず、1粒子ハミルトニアンを以下のように分解する。
+    \begin{gather*}
+        h=h_{int}+h_{ext1}+h_{ext2}\\
+        h_{int}=i\Gamma^{0}\Gamma^{1}\partial_{1}\\
+        h_{ext1}=i\Gamma^{0}\Gamma^{3}\partial_{3}+i\Gamma^{0}\Gamma^{4}[X_{4},\cdot]\\
+        h_{int}=i\Gamma^{0}\Gamma^{2}\partial_{2}+i\Gamma^{0}\Gamma^{7}[X_{7},\cdot]
+    \end{gather*}
+    この問題は、matterがU(N+1) adjoint表現で与えられていることを除けば、「Boundaryの交点上のWeyl-mode」を求めるセットアップそのものである。
+    故に、2d-Weylの局在を、6d-Weylから求める手続きと同様の論法を用いると、モードが2d-Weylであるための条件は、
+    \begin{gather*}
+        \begin{cases}
+        h_{ext1}\Psi=0\\
+        h_{ext2}\Psi=0
+        \end{cases}
+        \implies 
+        \begin{cases}
+        \partial_{3}\Psi+\Gamma^{34}[X_{4},\Psi]=0\\
+        \partial_{2}\Psi+\Gamma^{27}[Y{7},\Psi]=0
+        \end{cases}
+    \end{gather*}
+    である。故に、これのnormalizebleな解を探せば、それで話は完結する。\\
+    \\
+    上記の条件を解くために、まずは演算子$\Gamma^{3}\Gamma^{4}[X_{4},\cdot],\Gamma^{2}\Gamma^{7}[Y_{7},\cdot]$の性質を考える。
+    これらの演算子は、例えば以下のような性質を有する。
+    \begin{resultbox}{$\Gamma^{3}\Gamma^{4}[X_{4},\cdot],\Gamma^{2}\Gamma^{7}[Y_{7},\cdot]$の性質}
+        \begin{enumerate}
+            \item $\Gamma^{3}\Gamma^{4}[X_{4},\cdot],\Gamma^{2}\Gamma^{7}[Y_{7},\cdot]$は線形演算子である。
+            \item $\Gamma^{3}\Gamma^{4}[X_{4},\cdot],\Gamma^{2}\Gamma^{7}[Y_{7},\cdot]$は、作用させる順番という意味で、可換である。
+            \item $\Gamma^{3}\Gamma^{4}[X_{4},\cdot],\Gamma^{2}\Gamma^{7}[Y_{7},\cdot]$は同時対角化である。
+        \end{enumerate}
+    \end{resultbox}
+    \begin{proofbox}
+        1は自明である。3も1,2さえ成立すれば自明である。故に、2のみ示す。
+        \begin{align*}
+            \Gamma^{34}[X_{4},[\Gamma^{27}Y_{7},\cdot]]
+            &=\Gamma^{34}\Gamma^{27}[X_{4},[Y_{7},\cdot]]\\
+            &=\Gamma^{27}\Gamma^{34}(-[\cdot,[X_{4},Y_{7}]]-[Y_{7},[\cdot,X_{4}]])\\
+            &=\Gamma^{27}[Y_{7},[\Gamma^{34}X^{4}],\cdot]
+        \end{align*}
+        故に2も成立。
+    \end{proofbox}
+    次に、演算子[]の、非自明な同時固有ベクトルを考える。ただし、1点注意しなければならないのが、spinorもAdjoint-matterであることである。
+    ゲージ場の足としては、反エルミート行列でなければならない。\\
+    この事情を踏まえると、結果的に以下ようなspinorが、同時固有ベクトルになる。
+    \begin{resultbox}{$\Gamma^{3}\Gamma^{4}[X_{4},\cdot],\Gamma^{2}\Gamma^{7}[Y_{7},\cdot]$の同時固有ベクトル}
+        $\Gamma^{3}\Gamma^{4}[X_{4},\cdot],\Gamma^{2}\Gamma^{7}[Y_{7},\cdot]$の同時固有ベクトルは以下の通りである。
+        \begin{align*}
+            \Psi_{\pm_{1}\pm_{2}}=\Psi_{\pm_{2}}\otimes A
+            \pm_{1}\Gamma^{34}\Psi_{\pm_{1}} \otimes B
+        \end{align*}
+        ただし、上式のA,Bは、以下のようなU(N+1)の成分である。
+        \begin{align*}
+            A=\begin{pmatrix}
+                0 & 0& \dots & 1\\
+                0 & 0& \dots & 0\\
+                \vdots & \vdots & \ddots & \vdots \\
+                -1 & 0 & \dots & 0
+            \end{pmatrix},\quad B=\begin{pmatrix}
+                0 & 0& \dots & i\\
+                0 & 0& \dots & 0\\
+                \vdots &\vdots &\ddots & \vdots \\
+                i & 0 & \dots & 0
+            \end{pmatrix}
+        \end{align*}
+        また、左辺の下付きの$\pm\pm$は、それぞれ以下を表す。
+        \begin{align*}
+            \Gamma^{34}[X_{4},\Psi_{\pm_{1}\pm_{2}}]=\pm_{1} v_{4}\Psi_{\pm_{1}\pm_{2}}\\
+            \Gamma^{27}[Y_{7},\Psi_{\pm_{1}\pm_{2}}]=\pm_{1}\pm_{2} v_{7}\Psi_{\pm_{1}\pm_{2}}
+        \end{align*}
+        そして右辺の$\Psi_{pm}$は、以下を満たすspinorを表す。
+        \begin{align*}
+            \Gamma^{3427}\Psi_{\pm}=\pm \Psi_{\pm}
+        \end{align*}
+    \end{resultbox}
+    \begin{proofbox}
+        まずは、リー代数の部分の交換関係の計算結果を、以下にまとめる。
+        \begin{align*}
+            [X_{4},A]=v_{4}B\\
+            [X_{4},B]=-v_{4}A\\
+            [Y_{7},A]=-v_{7}B\\
+            [Y_{7},B]=v_{7}A
+        \end{align*}
+        上記の交換関係を用いることで、まず以下のstatementが成立する。
+        \begin{resultbox}{$\Gamma^{3}\Gamma^{4}[X_{4},\cdot]$の固有ベクトル}
+            $\Gamma^{3}\Gamma^{4}[X_{4},\cdot]$の固有ベクトルは以下の通りである。
+            \begin{gather*}
+                \psi_{pm} = \Psi_{0}\otimes A \pm \Gamma^{34}\Psi \otimes B \\
+                (\Gamma^{3}\Gamma^{4}[X_{4},\Psi_{\pm}]=\pm v_{4}\Psi_{\pm})
+            \end{gather*}
+            ここで、$\Psi_{0}$は10次元Weyl上の任意のspinorである。
+        \end{resultbox}
+        これが固有ベクトルであることは、直接代入することにより、以下のように検証可能である。
+        \begin{align*}
+            \Gamma^{34}[X_{4},\psi_{\pm}] 
+            &=\Gamma^{34}\Psi_{0} \otimes [X_{4},A] \pm (\Gamma^{34})^{2}\Psi_{0} \otimes [X_{4},B]\\
+            &=v_{4}(\Gamma^{34}\Psi \otimes B \pm -\Psi_{0}\otimes (-A))\\
+            &=\pm v_{4} \psi_{\pm}
+        \end{align*}
+        故に、同時固有ベクトル$\Psi_{\pm_{1}\pm_{2}}$も、$\psi_{0}$の形を取ると考えられる（ただ、十分条件を示しただけなので、必要条件かはまだ議論をする必要があるが・・・）。\\
+        \\
+        ここで、実際に、任意のspinorが許されている状況下で、$\Psi_{0}=\Psi_{\pm}$と取ることにより、そのspinorが$\Gamma^{2}\Gamma^{7}[Y_{7},\cdot]$の固有ベクトルであることも、以下のように示すことができる。
+        \begin{align*}
+            &\Gamma^{27}[Y_{7},\Psi_{\pm_{1}\pm_{2}}]\\
+            =&\Gamma^{27}\Psi_{\pm_{2}}\otimes (-v_{7}B)\pm_{1}\Gamma^{2734}\Psi_{\pm_{2}}\otimes v_{7}A\\
+            =&\pm_{2}v_{7}(\pm_{1}\Psi_{\pm_{2}}\otimes A + \Psi_{\pm_{2}}\otimes 2)\\
+            =&\pm_{1}\pm_{2}\Psi_{\pm_{1}\pm_{2}}
+        \end{align*}
+        この際、定義より、
+        \begin{gather*}
+            \Gamma^{3427}\Psi_{\pm_{2}}=\Psi_{\pm_{2}}
+        \iff \Gamma^{27}\Psi_{\pm_{2}}=\mp_{2}\Psi_{\pm_{2}}  
+        \end{gather*}
+        が成立することを用いた。\\
+        故に、確かに同時対角化ベクトルは題意の形で与えられる。
+    \end{proofbox}
+    10d Weylは、上記の同時固有ベクトルによって展開できる。
+    \begin{align*}
+        \Psi =\Psi_{++}+\Psi_{+-}+\Psi_{-+}+\Psi_{--}
+    \end{align*}
+    2d-Weylであるための条件式から、各固有ベクトルは以下のような依存性を持つ。
+    \begin{gather*}
+        \Psi_{++}\propto e^{-v_{4}x^{3}-v_{7}x^{2}} \implies \text{(Localized Chiral mode)}\\
+        \Psi_{+-}\propto e^{-v_{4}x^{3}+v_{7}x^{2}} \implies \text{(Not normalizable)}\\
+        \Psi_{-+}\propto e^{+v_{4}x^{3}+v_{7}x^{2}} \implies \text{(Not normalizable)}\\
+        \Psi_{+-}\propto e^{+v_{4}x^{3}-v_{7}x^{2}} \implies \text{(Not normalizable)}
+    \end{gather*}
+    故に、この理論におけるLocalized Weyl modeは、以下のモードとして与えられる。
+    \begin{gather*}
+        \Psi = (\Psi_{+}\otimes A + \Gamma^{34}\Psi_{+} \otimes B)e^{-v_{4}x^{3}-v_{7}x^{2}}\\
+        \Gamma^{3427}\Psi_{+} =\Psi_{+}
+    \end{gather*}
+    最後に、境界条件との兼ね合いを考えて、Weyl-modeがいくつあるかを考察する。境界条件は、題意から以下のように与えられていた。
+    \begin{align*}
+        \Gamma^{3456}\Psi|_{x^{3}=0}=\Psi|_{x^{3}=0}\\
+        \Gamma^{2789}\Psi|_{x^{2}=0}=\Psi|_{x^{2}=0}
+    \end{align*}
+    これと上記のProjectionを合わせて何成分残るかを考える。当然、これは今までと同様に、ProjectionのWeyl空間でのトレースから言える。
+    \begin{align*}
+        tr(\frac{1+\Gamma^{3456}}{2}\frac{1+\Gamma^{2789}}{2}\frac{1+\Gamma^{3427}}{2})=\frac{1}{8}tr(1+\cdots)=2
+    \end{align*}
+    故に、Weyl-modeに対応する成分数は2である。これは、Weyl-spinorが2個出現することを示唆している。
+\end{answerbox}
 
 \appendix
 \section{Shurの補題}
