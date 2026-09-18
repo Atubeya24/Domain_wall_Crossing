@@ -359,7 +359,7 @@ Boundary conditionの式には混ざったテンソルが存在するため、�
     F_{ab}&=[X_{a},X_{b}],\quad F_{mn}=[Y_{m},Y_{n}]\\
     &F_{am}=[X_{a},Y_{m}]
 \end{split} \end{equation}
-ここから、\eqref{b.c.}は最終的に以下のように分解される。
+ここから、境界条件の式は、最終的に以下のように分解される。
 \begin{equation}\label{b.c. con}
     \begin{split}
     0&=\bar{\epsilon}(\Gamma^{\mu\nu}F_{\mu\nu}-2\Gamma^{\mu3}F_{\mu3})\Psi'\\
@@ -1344,7 +1344,7 @@ $x^{3}=0$上の解は既に求めたように、以下の通りである。た�
 故に、明らかに(1),(2)は同じ空間を貼り、(1),(3)は線型独立である。\\
 \\
 このため、境界条件の式は、以下のように分解可能である。ただし、各項のFの値はすでにX,Y,Aを用いて書き換えている。
-\begin{equation}\label{true_b.c.}
+\begin{equation}
 \begin{split}
      0&=\bar{\epsilon}_{0}(F_{\mu\nu}-\epsilon_{\mu\nu\lambda}F^{2\lambda}C_{0})\theta_{0}\\
     0&=(D_{\mu}X_{a})(\bar{\epsilon}C_{2}\theta_{0})\\
@@ -2209,7 +2209,7 @@ Y_{7}=i \begin{pmatrix}
         h=h_{int}+h_{ext1}+h_{ext2}\\
         h_{int}=i\Gamma^{0}\Gamma^{1}\partial_{1}\\
         h_{ext1}=i\Gamma^{0}\Gamma^{3}\partial_{3}+i\Gamma^{0}\Gamma^{4}[X_{4},\cdot]\\
-        h_{int}=i\Gamma^{0}\Gamma^{2}\partial_{2}+i\Gamma^{0}\Gamma^{7}[X_{7},\cdot]
+        h_{int}=i\Gamma^{0}\Gamma^{2}\partial_{2}+i\Gamma^{0}\Gamma^{7}[Y_{7},\cdot]
     \end{gather*}
     この問題は、matterがU(N+1) adjoint表現で与えられていることを除けば、「Boundaryの交点上のWeyl-mode」を求めるセットアップそのものである。
     故に、2d-Weylの局在を、6d-Weylから求める手続きと同様の論法を用いると、モードが2d-Weylであるための条件は、
@@ -2245,14 +2245,14 @@ Y_{7}=i \begin{pmatrix}
         \end{align*}
         故に2も成立。
     \end{proofbox}
-    次に、演算子[]の、非自明な同時固有ベクトルを考える。ただし、1点注意しなければならないのが、spinorもAdjoint-matterであることである。
+    次に、演算子$\Gamma^{3}\Gamma^{4}[X_{4},\cdot]$の、非自明な同時固有ベクトルを考える。ただし、1点注意しなければならないのが、spinorもAdjoint-matterであることである。
     ゲージ場の足としては、反エルミート行列でなければならない。\\
     この事情を踏まえると、結果的に以下ようなspinorが、同時固有ベクトルになる。
     \begin{resultbox}{$\Gamma^{3}\Gamma^{4}[X_{4},\cdot],\Gamma^{2}\Gamma^{7}[Y_{7},\cdot]$の同時固有ベクトル}
         $\Gamma^{3}\Gamma^{4}[X_{4},\cdot],\Gamma^{2}\Gamma^{7}[Y_{7},\cdot]$の同時固有ベクトルは以下の通りである。
         \begin{align*}
             \Psi_{\pm_{1}\pm_{2}}=\Psi_{\pm_{2}}\otimes A
-            \pm_{1}\Gamma^{34}\Psi_{\pm_{1}} \otimes B
+            \pm_{1}\Gamma^{34}\Psi_{\pm_{2}} \otimes B
         \end{align*}
         ただし、上式のA,Bは、以下のようなU(N+1)の成分である。
         \begin{align*}
@@ -2273,7 +2273,7 @@ Y_{7}=i \begin{pmatrix}
             \Gamma^{34}[X_{4},\Psi_{\pm_{1}\pm_{2}}]=\pm_{1} v_{4}\Psi_{\pm_{1}\pm_{2}}\\
             \Gamma^{27}[Y_{7},\Psi_{\pm_{1}\pm_{2}}]=\pm_{1}\pm_{2} v_{7}\Psi_{\pm_{1}\pm_{2}}
         \end{align*}
-        そして右辺の$\Psi_{pm}$は、以下を満たすspinorを表す。
+        そして右辺の$\Psi_{\pm}$は、以下を満たすspinorを表す。
         \begin{align*}
             \Gamma^{3427}\Psi_{\pm}=\pm \Psi_{\pm}
         \end{align*}
@@ -2290,8 +2290,8 @@ Y_{7}=i \begin{pmatrix}
         \begin{resultbox}{$\Gamma^{3}\Gamma^{4}[X_{4},\cdot]$の固有ベクトル}
             $\Gamma^{3}\Gamma^{4}[X_{4},\cdot]$の固有ベクトルは以下の通りである。
             \begin{gather*}
-                \psi_{pm} = \Psi_{0}\otimes A \pm \Gamma^{34}\Psi \otimes B \\
-                (\Gamma^{3}\Gamma^{4}[X_{4},\Psi_{\pm}]=\pm v_{4}\Psi_{\pm})
+                \psi_{\pm} = \Psi_{0}\otimes A \pm \Gamma^{34}\Psi_{0} \otimes B \\
+                (\Gamma^{3}\Gamma^{4}[X_{4},\psi_{\pm}]=\pm v_{4}\psi_{\pm})
             \end{gather*}
             ここで、$\Psi_{0}$は10次元Weyl上の任意のspinorである。
         \end{resultbox}
@@ -2299,22 +2299,22 @@ Y_{7}=i \begin{pmatrix}
         \begin{align*}
             \Gamma^{34}[X_{4},\psi_{\pm}] 
             &=\Gamma^{34}\Psi_{0} \otimes [X_{4},A] \pm (\Gamma^{34})^{2}\Psi_{0} \otimes [X_{4},B]\\
-            &=v_{4}(\Gamma^{34}\Psi \otimes B \pm -\Psi_{0}\otimes (-A))\\
+            &=v_{4}(\Gamma^{34}\Psi_{0} \otimes B \pm (-\Psi_{0})\otimes (-A))\\
             &=\pm v_{4} \psi_{\pm}
         \end{align*}
-        故に、同時固有ベクトル$\Psi_{\pm_{1}\pm_{2}}$も、$\psi_{0}$の形を取ると考えられる（ただ、十分条件を示しただけなので、必要条件かはまだ議論をする必要があるが・・・）。\\
+        故に、同時固有ベクトル$\Psi_{\pm_{1}\pm_{2}}$も、$\psi_{\pm}$の形を取ると考えられる（ただ、十分条件を示しただけなので、必要条件かはまだ議論をする必要があるが・・・）。\\
         \\
         ここで、実際に、任意のspinorが許されている状況下で、$\Psi_{0}=\Psi_{\pm}$と取ることにより、そのspinorが$\Gamma^{2}\Gamma^{7}[Y_{7},\cdot]$の固有ベクトルであることも、以下のように示すことができる。
         \begin{align*}
             &\Gamma^{27}[Y_{7},\Psi_{\pm_{1}\pm_{2}}]\\
             =&\Gamma^{27}\Psi_{\pm_{2}}\otimes (-v_{7}B)\pm_{1}\Gamma^{2734}\Psi_{\pm_{2}}\otimes v_{7}A\\
-            =&\pm_{2}v_{7}(\pm_{1}\Psi_{\pm_{2}}\otimes A + \Psi_{\pm_{2}}\otimes 2)\\
-            =&\pm_{1}\pm_{2}\Psi_{\pm_{1}\pm_{2}}
+            =&\pm_{2}v_{7}(\pm_{1}\Psi_{\pm_{2}}\otimes A + \Gamma^{34}\Psi_{\pm_{2}}\otimes 2)\\
+            =&\pm_{1}\pm_{2}v_{7}\Psi_{\pm_{1}\pm_{2}}
         \end{align*}
         この際、定義より、
         \begin{gather*}
-            \Gamma^{3427}\Psi_{\pm_{2}}=\Psi_{\pm_{2}}
-        \iff \Gamma^{27}\Psi_{\pm_{2}}=\mp_{2}\Psi_{\pm_{2}}  
+            \Gamma^{3427}\Psi_{\pm_{2}}=\pm_{2}\Psi_{\pm_{2}}
+        \iff \Gamma^{27}\Psi_{\pm_{2}}=\mp_{2}\Gamma^{34}\Psi_{\pm_{2}}  
         \end{gather*}
         が成立することを用いた。\\
         故に、確かに同時対角化ベクトルは題意の形で与えられる。
